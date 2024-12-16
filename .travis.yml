@@ -7,3 +7,13 @@ before_install:
 
 script:
     - docker run -e CI=true rupeshbiswas/frontend npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "eu-north-1"
+    app: "frontend"
+    env: "Frontend-env"
+    bucket_name: "elasticbeanstalk-eu-north-1-042188618470"
+    bucket_path: "frontend"
+    on:
+     branch: main
